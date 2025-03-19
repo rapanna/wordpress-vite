@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package prajzbg
+ * @package sablona-wp
  */
 
 /**
@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function prajzbg_jetpack_setup() {
+function sablona-wp_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'prajzbg_infinite_scroll_render',
+			'render'    => 'sablona-wp_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function prajzbg_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'prajzbg-style',
+				'stylesheet' => 'sablona-wp-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,13 +48,13 @@ function prajzbg_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'prajzbg_jetpack_setup' );
+add_action( 'after_setup_theme', 'sablona-wp_jetpack_setup' );
 
-if ( ! function_exists( 'prajzbg_infinite_scroll_render' ) ) :
+if ( ! function_exists( 'sablona-wp_infinite_scroll_render' ) ) :
 	/**
 	 * Custom render function for Infinite Scroll.
 	 */
-	function prajzbg_infinite_scroll_render() {
+	function sablona-wp_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			if ( is_search() ) :

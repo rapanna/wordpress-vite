@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package prajzbg
+ * @package sablona-wp
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function prajzbg_body_classes( $classes ) {
+function sablona-wp_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -24,17 +24,17 @@ function prajzbg_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'prajzbg_body_classes' );
+add_filter( 'body_class', 'sablona-wp_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function prajzbg_pingback_header() {
+function sablona-wp_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'prajzbg_pingback_header' );
+add_action( 'wp_head', 'sablona-wp_pingback_header' );
 
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
