@@ -1,0 +1,33 @@
+@use './mix/global' as *;
+
+@use 'layout/layout';
+@use 'layout/header';
+
+/* header */
+@use 'component/social';
+@use 'component/black';
+@use 'component/nav';
+
+/* front */
+@use 'component/icons';
+@use 'component/work';
+@use 'component/wpcf7';
+@use 'component/reference';
+
+/* footer */
+@use 'layout/footer';
+
+body {
+	background: $white;
+	color: $primary-text;
+	font-family: $font-family-sans;
+	font-size: $font-size-root;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: $font-family-sans-serif;
+	letter-spacing: 1.5px;
+}

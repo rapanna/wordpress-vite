@@ -1,0 +1,31 @@
+@use '../mix/global' as *;
+
+.icons {
+	&__link {
+		@include display-flex(column, wrap, center, space-between, center);
+
+		color: $primary;
+		font-weight: 500;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__img {
+		display: block;
+		margin-bottom: 1rem;
+		@include media-bp-down(md) {
+			max-width: 90%;	
+		}			
+	}
+
+	&__span {
+		color: $primary;
+
+		@include media-bp-down(md) {
+			font-size: 	17px;
+		}			
+	}
+}

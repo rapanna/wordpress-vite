@@ -1,0 +1,109 @@
+// stylelint-disable media-feature-range-notation
+// stylelint-disable unit-allowed-list
+@use 'sass:map';
+
+@mixin display-flex(
+	$flexdirection: row,
+	$flexwrap: wrap,
+	$aligncontent: normal,
+	$justifycontent: normal,
+	$alignitems: normal
+) {
+	align-items: $alignitems;
+	display: flex;
+	flex-flow: $flexdirection $flexwrap;
+	place-content: $aligncontent $justifycontent;
+}
+
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	lg2: 1137px,	
+	xl: 1200px,
+	xxl: 1320px,
+);
+$containers: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	lg2: 1137px,
+	xl: 1140px,
+	xxl: 1240px,
+);
+$container-padding: 0.9375rem;
+
+@mixin media-bp-up($bp) {
+	$width: map.get($breakpoints, $bp);
+
+	@if $width {
+		@media (min-width: #{$width}) {
+			@content;
+		}
+	} @else {
+		@warn "Breakpoint #{$bp} not found in $breakpoints map.";
+	}
+}
+
+@mixin media-bp-height() {
+	@media (max-height: 31.25rem) {
+		@content;
+	}
+}
+
+@mixin media-bp-down($bp) {
+	$width: map.get($breakpoints, $bp);
+
+	@if $width {
+		$width: $width - 0.1px;
+
+		@media (max-width: #{$width}) {
+			@content;
+		}
+	} @else {
+		@warn "Breakpoint #{$bp} not found in $breakpoints map.";
+	}
+}
+
+@mixin reset-container-spacing {
+	@include media-bp-down(md) {
+		padding-left: $container-padding;
+		padding-right: $container-padding;
+	}
+}
+
+$font-family-sans-serif:
+	'Bebas Neue',
+	arial,
+	system-ui,
+	-apple-system,
+	'Segoe UI',
+	sans-serif;
+$font-family-sans-serif-bold:
+	'Bebas Neue',
+	arial,
+	system-ui,
+	-apple-system,
+	'Segoe UI',
+	sans-serif;
+$font-family-sans-serif-italic:
+	'Bebas Neue',
+	arial,
+	system-ui,
+	-apple-system,
+	'Segoe UI',
+	sans-serif;
+$font-family-sans:
+	arial,
+	system-ui,
+	-apple-system,
+	'Segoe UI',
+	sans-serif;
+$font-size-root: 1.1875rem;
+$font-size-base: 1.1875rem;
+$font-size-sm: $font-size-base * 0.75 !default; // 12px
+$font-size-lg: $font-size-base * 1.1875 !default; // 19px
+$font-size-h1: $font-size-base * 2.3125 !default; // 37px
+$font-size-h2: $font-size-base * 1.875 !default; // 30px
+$font-size-h3: $font-size-base * 1.5625 !default; // 25px
+$font-size-h4: $font-size-base * 1.3125 !default; // 21px

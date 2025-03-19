@@ -1,0 +1,44 @@
+@use '../mix/global' as *;
+
+.social {
+	border-bottom: 8px solid $primary;
+	padding-right: 1.25rem;
+	margin: 0;
+
+	&__site {
+		background-color: transparent;
+		width: 100%;
+	}
+
+	&__list {
+		@include display-flex(row, wrap, center, flex-end, center);
+
+		gap: 0.625rem;
+		list-style: none;
+		padding: 0.3125rem 0;
+		margin: 0;
+	}
+
+	&__link {
+		display: block;
+	}
+
+	&__ico {
+		background-size: cover;
+		display: block;
+		height: 1.875rem;
+		width: 1.875rem;
+
+		&--whatsapp {
+			background-image: url('@/img/logo_whatsapp.svg');
+		}
+
+		&--facebook {
+			background-image: url('@/img/logo_fb.svg');
+		}
+
+		&--instagram {
+			background-image: url('@/img/logo_instagram.svg');
+		}
+	}
+}

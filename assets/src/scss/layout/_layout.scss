@@ -1,0 +1,142 @@
+@use '../mix/global' as *;
+
+html {
+	box-sizing: border-box;
+	font-family: $font-family-sans-serif;
+	line-height: 1.15;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+body {
+	color: $black;
+	font-size: $font-size-root;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+section,
+footer {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 120rem;
+	width: 100%;
+}
+
+@include media-bp-down(md) {
+	header,
+	section,
+	footer {
+		max-width: 100%;
+	}
+}
+
+.none {
+	display: none;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 81.25rem;
+	width: 100%;
+	overflow: hidden;
+	clear: both;
+}
+
+.site-main {
+	background-color: $white;
+	background-image: url(@/img/list_pozadí.png);
+	background-position: -100% -65%;
+	background-repeat: no-repeat;
+	background-size: 110%;
+}
+
+.sec {
+	padding: 3rem 0;
+
+	&--icons {
+		font-family: $font-family-sans-serif;
+		letter-spacing: 1.5px;
+
+		.container {
+			@include display-flex(row, nowrap, center, space-between, center);
+			
+		}
+	}
+
+	&--onas,
+	&--kontakt {
+		@include media-bp-down(md) {
+			padding: 10px;
+		}
+
+		.container {
+			@include display-flex(
+				row,
+				wrap,
+				flex-start,
+				space-between,
+				flex-start
+			);
+			gap: 4rem;
+
+			@include media-bp-down(md) {
+				gap: 0;
+				@include display-flex(
+					column,
+					wrap,
+					flex-start,
+					space-between,
+					flex-start
+				);
+			}	
+
+			&__left,
+			&__right {
+				flex: 1 1 calc(50% - 2rem);
+
+				& > * {
+					@include media-bp-down(xxl) {
+						margin-left: 10px;	
+						margin-right: 10px;					
+					}
+				}
+
+				& img {
+					@include media-bp-down(xxl) {
+						margin-left: 10px;						
+					}
+				}
+			}
+		}
+
+		.onas__title {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+
+	&--work {
+		background-color: $primary;
+		color: $white;
+	}
+
+	&--references {
+		.container {
+			@include display-flex(row, wrap, flex-start, center, flex-start);
+
+			background-color: $primary;
+			color: $white;
+			border-radius: 0.625rem;
+			gap: 1.25rem;
+
+			@include media-bp-down(md) {
+				margin: 0px;
+				gap: 1.25rem;
+			}			
+		}
+	}
+}

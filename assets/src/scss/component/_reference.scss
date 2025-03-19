@@ -1,0 +1,23 @@
+@use '../mix/global' as *;
+
+.reference {
+
+	&__item {
+		flex: 1 1 calc(25% - 1.25rem);
+		padding: 1.25rem;
+
+		@include media-bp-down(md) {
+			flex: 0 0 calc(50% - 1.7rem);			
+			padding: 0;
+		}
+
+	}
+
+	&__logo {
+		max-height: 100px;
+		height: 100px;
+		width: auto;
+		display: block;
+		margin: 0 auto 1rem;
+	}
+}

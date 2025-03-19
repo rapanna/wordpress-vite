@@ -1,0 +1,61 @@
+@use '../mix/global' as *;
+
+.footer {
+	background-color: $black;
+	color: $white;
+	padding-top: 2rem;
+	
+
+	.container {
+		@include display-flex(row, wrap, flex-start, space-between, flex-start);
+		gap: 4rem;
+
+		&__left,
+		&__right {
+			flex: 1 1 calc(50% - 2rem);
+
+			@include media-bp-down(xxl) {
+				padding: 10px;
+			}
+		}
+
+
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.copyright {
+	text-align: center;
+	font-size: 15px;
+	color: $black;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
+	a {
+		color: $black;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.footer__right__link {
+	background-color: $primary;
+	color: $white;
+	padding: 0.9375rem 2.5rem;
+	display: block;
+	margin-top: 1.875rem;
+	border-radius: 5px;
+	font-family: $font-family-sans-serif;
+	letter-spacing: 1.5px;
+}
